@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mediaset.gigyatest">
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GigyaTest">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.gigya.android.sdk.ui.HostActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.gigya.android.sdk.ui.WebLoginActivity"
+            android:allowTaskReparenting="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter android:label="web_login_redirect">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gsapi"
+                    android:pathPrefix="/${applicationId}/login_result"
+                    android:scheme="gigya" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
